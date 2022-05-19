@@ -79,6 +79,26 @@ h1 {
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   }
 
-  section {
-    min-height: 100vh;
-}
+  footer {
+    padding: 25px;
+    margin-top: 50px;
+    background-color: #e5e5e5;
+    opacity: 0.8;
+  }
+
+  .footer-container {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .item {
+    font-size: 1.5rem;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  p {
+    font-size: 1.5rem;
+    font-family: 'Montserrat', sans-serif;
+    color: #ffffff;
+    text-align: center;
+  }
