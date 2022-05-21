@@ -5,7 +5,7 @@
 }
 
 body {
-  background-color: #ffffff;
+  background-color: #e5e5e5
 }
 
 h1 {
@@ -25,6 +25,14 @@ h1 {
 .card-container {
   display: flex;
   flex-wrap: wrap;
+  margin-top: 25px;
+  align-items: center;
+  justify-content: center;
+}
+
+/* .card-container {
+  display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
   background-color: #d3dce8;
   margin:0px 5px;
@@ -32,14 +40,14 @@ h1 {
   max-width: 100%;
   font-family: 'Montserrat', sans-serif;
   /* Don't use width with flex */
-}
+/*}*/
 
-.card {
+/* .card {
     /* Add shadows to create the "card" effect */
     /* flex: 1 =>  */
-    flex: 1 0 21%; /* 21% | 21% | 21% | 21%*/
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  }
+    /* flex: 1 0 21%; /* 21% | 21% | 21% | 21%*/
+   /* box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); */
+ /* } */
   
 /* Add some padding inside the card container */
   #container {
@@ -48,22 +56,31 @@ h1 {
     height: 100px;
   } 
 
+
+   /*credit to: https://w3bits.com/css-image-hover-zoom/*/
   img {
-  max-width: 100%;
+  max-width: 50%;
+  max-height: 400px;
+  transition: transform .2s, filter 300ms ease-in-out;
+  filter: grayscale(100%);
+  overflow: hidden;
     /* width: 200px;
     height: 200px; */
   }
 
+/* The Transformation */
   img:hover {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5))
-  }
+  filter: grayscale(0);
+  transform: scale(1.1);
+}
 
   input {
     line-height: 2.5;
-    font-size: 14px;
-    border-radius: 8px;
+    font-size: 16px;
     width: 400px;
     font-family: 'Montserrat', sans-serif;
+    outline: none;
+    padding-left: 10px;
   }
 
   .input-wrapper {
@@ -73,7 +90,7 @@ h1 {
   }
 
   .background {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)), url('images/Interior-National-Gallery-of-Art-Washington-DC.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)), url('images/Things-To-Do-In-Harlem-181126094731002-1-1280x640.jpg');
     background-position: center;
     height: 40vh;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -82,7 +99,7 @@ h1 {
   footer {
     padding: 25px;
     margin-top: 50px;
-    background-color: #e5e5e5;
+    background-color: #ffffff;
     opacity: 0.8;
   }
 
@@ -97,8 +114,9 @@ h1 {
   }
 
   p {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-family: 'Montserrat', sans-serif;
-    color: #ffffff;
+    color: #e5e5e5;
     text-align: center;
+    font-style: italic;
   }

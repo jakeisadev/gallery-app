@@ -11,16 +11,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
-    <title>Document</title>
+    <title>Gallery App by Jacob Starowicz</title>
 </head>
-<body>
+<body onload="onLoadImages(event)">
   <div class="background">
   <h1>Personal Gallery</h1>
-    <form action="" onsubmit="dispImage(event)">
+    <form id= "form" action="" onsubmit="dispImage(event)">
       <div class="input-wrapper">
         <input type="text" id="data" name="data">
       </div>
-      <p>"Your Gallery, personalized"</p>
+      <p>Insert Search query above.</p>
     </form>
     </div>
     <div class ="content-wrapper">
@@ -29,11 +29,7 @@
       </div>
       <footer>
         <div class="footer-container">
-          <div class="item">History</div>
-          <div class="item">Map</div>
-          <div class="item">Careers</div>
-          <div class="item">Blog</div>
-          <div class="item">Contact</div>
+          <div class="item">Created By: Jacob Starowicz</div>
         </div>
       </footer>
 <script src="script.js"></script>
