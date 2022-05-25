@@ -44,7 +44,8 @@ document.getElementById('data').value = '';
   
         //We do this by letting JS dynamically enter HTML depending on the data retrieved. 
           output += `
-          <img src="${item.urls.regular}" alt="${item.description ?? ''}">`
+          <img src="${item.urls.regular}" alt="${item.description ?? ''}">
+    `
       })
       //Finalizes the data into the "card-container" div within the index.hmtml
       document.getElementById("card-container").innerHTML = output;
