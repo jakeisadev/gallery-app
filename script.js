@@ -20,7 +20,13 @@ fetch(url)
 
       //We do this by letting JS dynamically enter HTML depending on the data retrieved. 
         output += `
-        <img src="${item.urls.regular}" alt="${item.description ?? ''}">`
+        <div class="card" style="width: 18rem;">
+        <img src="${item.urls.regular}" class="card-img-top" alt="${item.description ?? ''}">
+        <div class="card-body">
+          <h5 class="card-title"><i class='fa fa-heart red-color' style="color: red;"></i>${item.likes}</h5>
+          <a href="#" class="btn btn-outline-dark">Description</a>
+        </div>
+      </div>`
     })
     //Finalizes the data into the "card-container" div within the index.hmtml
     document.getElementById("card-container").innerHTML = output;
@@ -44,7 +50,13 @@ document.getElementById('data').value = '';
   
         //We do this by letting JS dynamically enter HTML depending on the data retrieved. 
           output += `
-          <img src="${item.urls.regular}" alt="${item.description ?? ''}">
+          <div class="card" style="width: 18rem;">
+  <img src="${item.urls.regular}" class="card-img-top" alt="${item.description ?? ''}">
+  <div class="card-body">
+    <h5 class="card-title"><i class='fa fa-heart red-color' style="color: red;"></i>${item.likes}</h5>
+    <a href="#" class="btn btn-outline-dark">Description</a>
+  </div>
+</div>
     `
       })
       //Finalizes the data into the "card-container" div within the index.hmtml
