@@ -1,5 +1,6 @@
 //Access Key: _qiFC3j_JuFn4ZjO7ks1Z4h3dUDevonoxangBW2eXZo
 //Secret Key: CkYoJ9j7ZtpH2NK3JniD48cpmoVMV6QNOKP5CUxASRU
+let imageArray = [];
 
 const dispImage = (e) => {
   //Don't let the form refresh the page as its default action once the user presses "Enter".
@@ -14,7 +15,8 @@ let output = '' //Variable to hold the dynamic HTML content
 fetch(url)
 .then(res => res.json())
 .then((data) => {
-    data.results.forEach((item) => {
+    data.results.forEach((item, index) => {
+      imageArray.push(item.urls.regular)
       //forEach item within the fetched API, output a card containing the image,
       //description, and amount of likes that it has.
 
@@ -24,7 +26,7 @@ fetch(url)
         <img src="${item.urls.regular}" class="card-img-top" alt="${item.description ?? ''}">
         <div class="card-body">
           <h5 class="card-title"><i class='fa fa-heart red-color' style="color: red;"></i>${item.likes}</h5>
-          <a href="#" class="btn btn-outline-dark">Description</a>
+          <a class="btn btn-outline-dark modal-open-link" onclick="openImageModal(${index})" id="btn-${index}" data-bs-toggle="modal" data-bs-target="#myModal">Description</a>
         </div>
       </div>`
     })
@@ -43,7 +45,8 @@ document.getElementById('data').value = '';
   fetch(url)
   .then(res => res.json())
   .then((data) => {
-      data.results.forEach((item) => {
+      data.results.forEach((item, index) => {
+        imageArray.push(item.urls.regular)
         console.log(data);
         //forEach item within the fetched API, output a card containing the image,
         //description, and amount of likes that it has.
@@ -54,7 +57,7 @@ document.getElementById('data').value = '';
   <img src="${item.urls.regular}" class="card-img-top" alt="${item.description ?? ''}">
   <div class="card-body">
     <h5 class="card-title"><i class='fa fa-heart red-color' style="color: red;"></i>${item.likes}</h5>
-    <a href="#" class="btn btn-outline-dark">Description</a>
+    <a class="btn btn-outline-dark modal-open-link" onclick="openImageModal(${index})" id="btn-${index}" data-bs-toggle="modal" data-bs-target="#myModal">Description</a>
   </div>
 </div>
     `
@@ -63,3 +66,17 @@ document.getElementById('data').value = '';
       document.getElementById("card-container").innerHTML = output;
   })
   }
+
+    const openImageModal = (index) => {
+      console.log(imageArray[index]);
+      console.log(index);
+      document.getElementById('my-modal-body').innerHTML = `<img src="${imageArray[index]}">`
+      //modal.innerhtml = image[index]
+    }
+  
+
+// Data Attributes.
+
+  // Track which button got clicked,
+  // depending on that, show the respective image.
+  // document.getElementsByClassName('modal-open-link')

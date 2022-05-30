@@ -156,3 +156,7 @@ h1 {
   a {
     font-family: 'Roboto Condensed', sans-serif;
   }
+
+  #modalText {
+    color: black;
+  }
