@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+html,body{
+  overflow-x: hidden;
+}
+
 /* Add padding/margins to space out pictures
 also, consider removing the growth effect.
 Also, remove italics from page.
