@@ -40,8 +40,10 @@ fetch(url)
         <div class="card" style="width: 18rem;">
         <img src="${item.urls.regular}" class="card-img-top" alt="${item.description ?? ''}">
         <div class="card-body">
-        <h5 class="card-title"><i class='fa fa-heart red-color' style="color: red;"></i>${item.likes}</h5>
-        <a class="btn btn-outline-dark modal-open-link" onclick="openImageModal(${index})" id="btn-${index}" data-bs-toggle="modal" data-bs-target="#myModal">Description</a>
+        <h5 class="card-title">
+        <i class='fa fa-heart red-color' style="color: red;"></i>${item.likes}</h5>
+        <a class="btn btn-outline-dark modal-open-link" onclick="openImageModal(${index})" 
+        id="btn-${index}" data-bs-toggle="modal" data-bs-target="#myModal">Description</a>
         </div>
         </div>`
       document.getElementById("modalLabel").innerHTML = `Credit: ${item.user.username}`
@@ -49,25 +51,21 @@ fetch(url)
     })
     //Finalizes the data into the "card-container" div within the index.hmtml
     document.getElementById("card-container").innerHTML = output;
-     // onClick, download image from url when "Download" button within modal is clicked
-     document.getElementById("download").addEventListener('click',() => {
-
-      //How to define img within another function? Outside of scope.
-      //1: Use fetch again? Seems problematic
-  
-      let img = '';
-
-
-      let imagePath = img.getAttribute('src');
-      let fileName = getFileName(imagePath);
-      saveAs(imagePath, fileName);
-    });
-
-    function getFileName(str) {
-      return str.substring(str.lastIndexOf('/') + 1);
-    }
 })
+
 }
+
+ 
+ 
+// Must use FileSaver.js 2.0.2 because 2.0.3 has issues.
+const downloadImage = (src) => {
+    // let imagePath = img.getAttribute('src');
+    console.log(src);
+    let imagePath = src;
+    let fileName = imagePath.substring(imagePath.lastIndexOf('/') + 1);
+    console.log(fileName);
+    saveAs(imagePath, fileName);
+  }
 
 // Event Handlers:
 // The second argument is just passing the name of the function.
@@ -80,7 +78,14 @@ document.getElementById('form').addEventListener('submit', dispImage)
     const openImageModal = (index) => {
       console.log(imageArray[index]);
       console.log(index);
-      document.getElementById('my-modal-body').innerHTML = `<img src="${imageArray[index]}">`
+      document.getElementById('my-modal-body').innerHTML = 
+      `<div class="modal-body">
+      <img src="${imageArray[index]}">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" onclick="downloadImage('${imageArray[index]}')" class="download-btn btn btn-primary" id="download-${index}" >Download</button> 
+      </div>`
     }
 
 // Data Attributes.
