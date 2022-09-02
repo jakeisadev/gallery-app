@@ -43,7 +43,7 @@ fetch(url)
         <h5 class="card-title">
         <i class='fa fa-heart red-color' style="color: red;"></i>${item.likes}</h5>
         <a class="btn btn-outline-dark modal-open-link" onclick="openImageModal(${index})" 
-        id="btn-${index}" data-bs-toggle="modal" data-bs-target="#myModal">Description</a>
+        id="btn-${index}" data-bs-toggle="modal" data-bs-target="#myModal">View</a>
         </div>
         </div>`
       document.getElementById("modalLabel").innerHTML = `Credit: ${item.user.username}`
